@@ -604,15 +604,9 @@ document.querySelector("#app").innerHTML = `
   </div>
 `;
 
-function fetchProducts() {
-  // TODO fetch products from API
-  console.log(DATA);
-  return DATA;
-}
 
-const list = fetchProducts();
 
-const produtsList = list.products.map((product) => {
+const produtsList = DATA.products.map((product) => {
   return `
     <div> 
       <p>${[product.title]}</p>
@@ -620,6 +614,14 @@ const produtsList = list.products.map((product) => {
     </div>  
     `;
 });
+
+
+function fetchProducts = () {
+  return DATA; // call from api
+}
+
+const recommendedProducts = DATA.products.slice(0, 3)
+
 
 document.querySelector("#app").innerHTML += produtsList.join("");
 
